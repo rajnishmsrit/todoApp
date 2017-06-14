@@ -1,10 +1,10 @@
 <?php
 
-  echo "Hello World";
+require __DIR__.'/app/code/rajnish/Database/Database.php';
 
-  require 'app\class\Database.php';
-  $test = new Database();
+  $test = new Database('todoapp', 'todoapp', 'todoapp');
 
-
-
+  $insert_query="insert into users(username, password) values('tw','tw')";
+  $query="select * from users";
+  var_dump($test->query($query));
  ?>
