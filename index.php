@@ -1,8 +1,8 @@
 <?php
 
-require __DIR__.'/app/code/rajnish/Database/Database.php';
+  require __DIR__.'/app/code/rajnish/Database/Database.php';
 
-  $test = new Database('todoapp', 'todoapp', 'todoapp');
+  $test = new Database();
 
   $insert_query="insert into users(username, password) values('tw','tw')";
   $query="select * from users";
