@@ -1,0 +1,13 @@
+{
+    "name": "rajnish/todoapp",
+    "description": "A project for todo application using PHP, MySQL and OOPS Concepts",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rajnish Kumar",
+            "email": "rajnishmsrit@gmail.com"
+        }
+    ],
+    "require": {}
+}
