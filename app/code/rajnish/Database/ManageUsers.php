@@ -15,28 +15,39 @@ class ManageUsers
     return $this->link;
   }
 
-  function registerUsers($username, $password){
+  function registerUser($username, $password){
     $query=$this->link->prepare("INSERT into users(username, password, datetime) values(?,?,?)");
     $values = array($username, $password, date("Y-m-d H:i:s"));
     $query->execute($values);
-    $counts = $query->rowCount();
-    return $counts;
+    $count = $query->rowCount();
+    return $count;
   }
 
-  function verifyUsers($username, $password){
+  function verifyUser($username, $password){
     $query=$this->link->prepare("select * from users where username='$username' and password='$password'");
-
-    //$values = array($username, $password);
     $query->execute();
-    $counts = $query->rowCount();
-    if($counts===1)
-    {
-      return true;
-    }
-    else
-    {
-      return false;
-    }
+    $count = $query->rowCount();
+    return $count;
+  }
+
+  function resetUser($email){
+    //Reset account and send an email
+  }
+
+  function existUsername($username){
+    //Check if a $username exists;
+    $query=$this->link->prepare("select * from users where username='$username'");
+    $query->execute();
+    $count = $query->rowCount();
+    return $count;
+  }
+
+  function existEmail($email){
+    //Check if a account with $email exists;
+    $query=$this->link->prepare("select * from users where email='$email'");
+    $query->execute();
+    $count = $query->rowCount();
+    return $count;
   }
 }
 

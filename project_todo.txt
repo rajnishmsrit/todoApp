@@ -10,6 +10,9 @@ project todo
   -
   -
 
+- Send mail for reset password
+- Integrate POP3 mail with gmail client
+
 - crud operation for todo management
 - ajax implementation for every verification
 - change db from MySQL to mongodb

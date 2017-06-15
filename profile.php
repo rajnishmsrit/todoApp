@@ -1,7 +1,3 @@
-<?php
-
-  //require __DIR__.'/app/code/rajnish/Database/Database.php';
- ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,8 +10,8 @@
   </head>
   <body>
   <div class="uk-nav-primary">
-    Todo App
-    <a href="profile.php"><span class="uk-align-right">name</span></a>
+    <span class="uk-align-center">Todo App - Profile</span>
+    <a href="home.php"><span class="uk-align-left">homepage</span></a>
   </div>
   This is your todo page
   </body>

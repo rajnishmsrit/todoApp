@@ -1,9 +1,13 @@
 <?php
 
-print "Hello World";
+class Login
+{
 
+  function verifyUser()
+  {
 
-	class Login(){
+  }
 
-	}
+  function
+}
 ?>
