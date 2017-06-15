@@ -1,0 +1,12 @@
+project todo
+============
+
+- Login
+  - Forgot password
+  - Create account
+
+- todo page
+  - right top menu for user image with functionality to goto settings
+  -
+  -
+
