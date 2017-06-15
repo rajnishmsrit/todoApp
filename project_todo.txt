@@ -10,3 +10,12 @@ project todo
   -
   -
 
+- crud operation for todo management
+- ajax implementation for every verification
+- change db from MySQL to mongodb
+- change ui from yahoo toolkit frontend to angular js
+- change project step by step to mean stack
+
+- security
+  - HTTP Security
+  - .htaccess Security
