@@ -28,6 +28,23 @@
             </a>
         </div>
     </nav>
+    <?php
+
+      session_start();
+      if(isset($_SESSION) && isset($_SESSION['error']))
+      {
+        ?>
+          <div class="alert alert-danger" role="alert">
+            <?php
+              print $_SESSION['error'];
+              unset($_SESSION['error']);
+            ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+         </div>
+        <?php
+      }
+    ?>
+
     <div id="create_box" class="col-md-3">
       <label><h3>Create</h3></label>
       <form id="todo_add" name="todo_add" method="post" action="app/route/todo_add_controller.php">

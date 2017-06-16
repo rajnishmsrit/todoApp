@@ -24,7 +24,8 @@ project todo
 
 high_priority
 =============
-- Db query syntaxes
+- add todo list
+- get relevant data from user session of logged in user
 - writing Documentation
 - writing Test Classes
 - Debugging
