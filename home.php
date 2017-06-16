@@ -1,7 +1,8 @@
 <?php
 
-  //require __DIR__.'/app/code/rajnish/Database/Database.php';
- ?>
+require_once $_SERVER['DOCUMENT_ROOT'].'/repos/todoApp/config.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,7 +32,6 @@
         </div>
     </nav>
     <?php
-      session_start();
 
       if(isset($_SESSION) && isset($_SESSION['error']))
       {
@@ -87,34 +87,15 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>
-                  Name
-                </td>
-                <td>
-                  20%
-                </td>
-                <td>
-                  16th June
-                </td>
-                <td>
-                  Button
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Name
-                </td>
-                <td>
-                  20%
-                </td>
-                <td>
-                  16th June
-                </td>
-                <td>
-                  Button
-                </td>
-              </tr>
+              <?php
+                $uid = $_SESSION['uid'];
+                $todo = new Db();
+               // print_r("<pre>");
+                $data=$todo->getTodoByUser($uid);
+                foreach ($data as $key => $value) {
+                  print("<tr><td>".$value['task']."</td><td>".$value['progress']."</td><td>".$value['due_date']."</td><td><a href='todo_add.php' class='btn btn-default pull-right'>Edit</a></td></tr>");
+                }
+              ?>
             </tbody>
           </table>
           <a href="todo_add.php" class="btn btn-default pull-right">Add</a>

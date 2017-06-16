@@ -2,11 +2,10 @@
 
 require_once $_SERVER['DOCUMENT_ROOT'].'/repos/todoApp/config.php';
 
-session_start();
-
 if(isset($_POST) && isset($_POST['type']) && $_POST['type']==="todo_add"){
 
 
+  $uid = $_SESSION['uid'];
   $task = $_POST['task'];
   $tags = $_POST['tags'];
   $progress = $_POST['progress'];
@@ -19,7 +18,7 @@ if(isset($_POST) && isset($_POST['type']) && $_POST['type']==="todo_add"){
   else
   {
     $todo = new Db();
-    $todo->addTodo($task, $tags, $progress, $due_date);
+    $todo->addTodo($uid, $task, $tags, $progress, $due_date);
     $_SESSION['success'] = "Added task";
     header("Location: ".BP."/home.php");
   }

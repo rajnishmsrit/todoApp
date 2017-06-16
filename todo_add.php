@@ -30,7 +30,6 @@
     </nav>
     <?php
 
-      session_start();
       if(isset($_SESSION) && isset($_SESSION['error']))
       {
         ?>

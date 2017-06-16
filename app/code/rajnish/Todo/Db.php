@@ -13,17 +13,17 @@ class Db
     return $this->link;
   }
 
-  function addTodo($task, $tags, $progress, $due_date){
+  function addTodo($uid, $task, $tags, $progress, $due_date){
     $created = date("Y-m-d H:i:s");
-    $query=$this->link->prepare("INSERT into todo(task, tags, progress, due_date, created, updated) values(?, ?, ?, ?, ?, ?)");
-    $values = array($task, $tags, $progress, $due_date, $created, $created);
+    $query=$this->link->prepare("INSERT into todo(uid, task, tags, progress, due_date, created, updated) values(?, ?, ?, ?, ?, ?, ?)");
+    $values = array($uid, $task, $tags, $progress, $due_date, $created, $created);
     $query->execute($values);
     $count = $query->rowCount();
     return $count;
   }
 
-  function getTodoByUser(){
-    $query=$this->link->prepare("select task, tags, progress, due_date from todo");
+  function getTodoByUser($uid){
+    $query=$this->link->prepare("select task, tags, progress, due_date from todo where uid=".$uid." order by updated desc");
     $query->execute();
     $data = $query->fetchALL(PDO::FETCH_ASSOC);
     return $data;
@@ -68,6 +68,6 @@ class Db
   }
 }
 
-$todo = new Db();
-var_dump($todo->getTodoByUser());
+//$todo = new Db();
+//var_dump($todo->getTodoByUser());
 //echo $todo->addTodo("test", "label", 12, "123546");
