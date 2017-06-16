@@ -7,3 +7,11 @@ body
 {
   margin-bottom: 5px;
 }
+.navbar
+{
+  border-radius: 0px;
+}
+.panel
+{
+  min-height: 500px;
+}

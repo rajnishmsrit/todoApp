@@ -1,8 +1,8 @@
 <?php
 
+require_once $_SERVER['DOCUMENT_ROOT'].'/repos/todoApp/config.php';
+
 session_start();
-//require 'app/code/rajnish/Database/ManageUsers.php';
-require 'app/code/rajnish/Login/Create.php';
 
 if(isset($_POST) && isset($_POST['type'])){
 
@@ -14,16 +14,13 @@ if(isset($_POST) && isset($_POST['type'])){
       $_SESSION['error'] = "Please fill mandatory fields.";
       header('Location: index.php');
     }
-    else if(true)
+    else
     {
-      //User is Validated
-      //Todo DB Check Query
 
-      $username= $_POST['username'];
-      $password= $_POST['password'];
+      $username = $_POST['username'];
+      $password = $_POST['password'];
 
       $users = new ManageUsers();
-      //echo $users->registerUsers("rajnish", "password");
 
       //Gets Success when verified
       if($users->verifyUser($username, $password))
@@ -39,10 +36,7 @@ if(isset($_POST) && isset($_POST['type'])){
       //If correct, redirect to todo app
 
     }
-    else
-    {
 
-    }
   }
   else if($_POST['type']==="create")
   {

@@ -8,7 +8,6 @@ project todo
 - todo page
   - right top menu for user image with functionality to goto settings
   -
-  -
 
 - Send mail for reset password
 - Integrate POP3 mail with gmail client
@@ -22,3 +21,10 @@ project todo
 - security
   - HTTP Security
   - .htaccess Security
+
+high_priority
+=============
+- Db query syntaxes
+- writing Documentation
+- writing Test Classes
+- Debugging

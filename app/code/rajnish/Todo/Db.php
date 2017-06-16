@@ -1,9 +1,8 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'].'/repos/todoApp/config.php';
 /**
 *
 */
-class ManageUsers
+class Db
 {
   public $link;
 
@@ -14,7 +13,23 @@ class ManageUsers
     return $this->link;
   }
 
-  function registerUser($username, $password, $email){
+  function addTodo($task, $tags, $progress, $due_date){
+    $created = date("Y-m-d H:i:s");
+    $query=$this->link->prepare("INSERT into todo(task, tags, progress, due_date, created, updated) values(?, ?, ?, ?, ?, ?)");
+    $values = array($task, $tags, $progress, $due_date, $created, $created);
+    $query->execute($values);
+    $count = $query->rowCount();
+    return $count;
+  }
+
+  function getTodoByUser(){
+    $query=$this->link->prepare("select task, tags, progress, due_date from todo");
+    $query->execute();
+    $data = $query->fetchALL(PDO::FETCH_ASSOC);
+    return $data;
+  }
+
+  function getTodoByLabelByUser($label){
     $ip = $_SERVER['REMOTE_ADDR'];
     $datetime = date("Y-m-d H:i:s");
     $query=$this->link->prepare("INSERT into users(username, password, email, ip, datetime) values(?, ?, ?, ?, ?)");
@@ -24,7 +39,7 @@ class ManageUsers
     return $count;
   }
 
-  function verifyUser($username, $password){
+  function updateTodo($username, $password){
     $password = md5($password);
     $query=$this->link->prepare("select * from users where username='$username' and password='$password'");
     $query->execute();
@@ -32,7 +47,7 @@ class ManageUsers
     return $count;
   }
 
-  function resetUser($email){
+  function deleteTodo($email){
     //Reset account and send an email
   }
 
@@ -53,3 +68,6 @@ class ManageUsers
   }
 }
 
+$todo = new Db();
+var_dump($todo->getTodoByUser());
+//echo $todo->addTodo("test", "label", 12, "123546");

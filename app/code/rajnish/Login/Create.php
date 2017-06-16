@@ -1,6 +1,6 @@
 <?php
 
-require 'app/code/rajnish/Database/ManageUsers.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/repos/todoApp/config.php';
 
 class Create
 {
