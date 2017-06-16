@@ -1,11 +1,9 @@
-body{
+body
+{
   background: #fff;
 }
 
-#create_box{
-  display: none;
-}
-
-#reset_box{
-  display: none;
+.form-control
+{
+  margin-bottom: 5px;
 }

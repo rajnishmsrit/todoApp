@@ -16,11 +16,10 @@
     <title>Todo App</title>
   </head>
   <body>
-
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand text-center" href="#">
+          <a class="navbar-brand text-center" href="index.php">
             Todo App
           </a>
         </div>
@@ -41,22 +40,19 @@
     }
     ?>
 
-    <div id="login_box" class="col-md-4">
-      <label><h3>Login</h3></label>
-      <form id="login" name="login" method="post" action="action.php" onsubmit="return validator()">
-      <div class="form-group">
-        <input type="hidden" name="type" value="login">
+    <div id="create_box" class="col-md-4">
+      <label><h3>Create</h3></label>
+      <form id="create" name="create" method="post" action="action.php">
+        <input type="hidden" name="type" value="create">
+        <input type="email" class="form-control" name="email" placeholder="Email">
         <input type="text" class="form-control" name="username" placeholder="Username">
         <input type="password" class="form-control" name="password" placeholder="Password">
+        <input id="confirm_password" type="password" name="confirm_password" type="password" class="form-control" placeholder="Confirm Password">
         <button type="submit" class="btn btn-default">Submit</button><br>
-        <a id="btn_create" class="btn btn-default navbar-btn" href="create.php">Create Account</a>
+        <a id="btn_login" class="btn btn-default navbar-btn" href="index.php">Login</a>
         <a id="btn_reset" class="btn btn-default navbar-btn" href="reset.php">Forgot Password/Reset</a>
-      </div>
       </form>
     </div>
+
   </body>
 </html>
-
-
-<script type="text/javascript">
-</script>

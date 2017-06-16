@@ -1,7 +1,8 @@
 <?php
 
 session_start();
-require 'app/code/rajnish/Database/ManageUsers.php';
+//require 'app/code/rajnish/Database/ManageUsers.php';
+require 'app/code/rajnish/Login/Create.php';
 
 if(isset($_POST) && isset($_POST['type'])){
 
@@ -10,7 +11,7 @@ if(isset($_POST) && isset($_POST['type'])){
     //Verify the kind of form
     if(empty($_POST['username']) || empty($_POST['password']))
     {
-      $_SESSION['error'] = "Some mandatory fields are blank";
+      $_SESSION['error'] = "Please fill mandatory fields.";
       header('Location: index.php');
     }
     else if(true)
@@ -42,6 +43,25 @@ if(isset($_POST) && isset($_POST['type'])){
     {
 
     }
+  }
+  else if($_POST['type']==="create")
+  {
+    $email= $_POST['email'];
+    $username= $_POST['username'];
+    $password= $_POST['password'];
+    $create = new Create($username, $email, $password);
+    try {
+      $create->create();
+      header('Location: home.php');
+    } catch (Exception $e) {
+      $_SESSION['error'] = $e->getMessage();
+      header('Location: index.php');
+    }
+
+  }
+  else if($_POST['type']==="reset")
+  {
+    //todo mail for reset
   }
 
 }

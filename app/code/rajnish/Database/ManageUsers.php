@@ -15,15 +15,18 @@ class ManageUsers
     return $this->link;
   }
 
-  function registerUser($username, $password){
-    $query=$this->link->prepare("INSERT into users(username, password, datetime) values(?,?,?)");
-    $values = array($username, $password, date("Y-m-d H:i:s"));
+  function registerUser($username, $password, $email){
+    $ip = $_SERVER['REMOTE_ADDR'];
+    $datetime = date("Y-m-d H:i:s");
+    $query=$this->link->prepare("INSERT into users(username, password, email, ip, datetime) values(?, ?, ?, ?, ?)");
+    $values = array($username, $password, $email, $ip, $datetime );
     $query->execute($values);
     $count = $query->rowCount();
     return $count;
   }
 
   function verifyUser($username, $password){
+    $password = md5($password);
     $query=$this->link->prepare("select * from users where username='$username' and password='$password'");
     $query->execute();
     $count = $query->rowCount();
