@@ -7,6 +7,10 @@ class ManageUsers
 {
   public $link;
 
+  /**
+   * [__construct description]
+   */
+
   function __construct()
   {
     $db_connection = new Database();

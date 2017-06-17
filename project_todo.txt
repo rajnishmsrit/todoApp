@@ -22,10 +22,22 @@ project todo
   - HTTP Security
   - .htaccess Security
 
+- add a install folder and steps to run this project in open source
+
 high_priority
 =============
-- add todo list
-- get relevant data from user session of logged in user
+- add todo list DONE
+- get relevant data from user session of logged in user DONE
 - writing Documentation
 - writing Test Classes
 - Debugging
+- Edit button working
+- pagination working
+- calendar plugin
+- tag based search and tag management
+- User profile crud and fix
+- autoloading and namespacing on project
+
+- github setup ssh for auto commiting per project
+- github deployment using digitalocean
+- adding a cli component by leveraging laravel artisan or symphony cli
